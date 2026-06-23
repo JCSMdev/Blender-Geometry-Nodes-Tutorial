@@ -1,0 +1,84 @@
+body.high-contrast {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+body.high-contrast .content {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+body.high-contrast .active {
+  color: #fff !important;
+  font-size: 1.5em !important;
+}
+
+body.high-contrast a:link {
+  font-size: 1.2em;
+  color: rgb(255, 255, 90);
+}
+
+body.high-contrast a:visited {
+  color: rgb(255, 206, 90);
+}
+
+body.high-contrast p,
+body.high-contrast h1,
+body.high-contrast h2,
+body.high-contrast h3,
+body.high-contrast summary {
+  color: #fff !important;
+}
+
+body.high-contrast p {
+  font-size: 1.5em;
+}
+
+body.high-contrast h2 {
+  font-size: 2.7em;
+}
+
+body.high-contrast h3 {
+  font-size: 2.2em;
+}
+
+body.high-contrast summary {
+  font-size: 1.2em;
+}
+
+body.high-contrast figcaption {
+  font-size: 1.2em;
+}
+
+body.high-contrast tr {
+  font-size: 1.2em;
+}
+
+body.high-contrast .navbar {
+  background-color: #000 !important;
+}
+
+body.high-contrast .dropdown-item {
+  background-color: #000 !important;
+}
+
+body.high-contrast .dropdown-item:hover {
+  color: #fff;
+}
+
+body.high-contrast .btn {
+  background-color: #ff0;
+  color: #000;
+}
+
+body.high-contrast .navbar-nav .nav-link:hover,
+body.high-contrast .navbar-nav .nav-link.active {
+  color: #333333 !important;
+  background-color: #ff0;
+  border-radius: 0.375rem;
+  /* Rounded edges for hover */
+}
+
+.navbar-toggler {
+  background-color: #fff;
+}

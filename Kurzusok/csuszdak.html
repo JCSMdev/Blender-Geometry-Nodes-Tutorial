@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procedurális Generálás - Csúszdák</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/Kurzus/kurzcustom.css">
+    <link rel="stylesheet" href="../css/Kezdolap/high-contrast.css">
+
+</head>
+<body>
+    <nav>
+        <h2 class="visually-hidden">Ugrás a tartalomra</h2>
+        <a class="visually-hidden-focusable skip-link" href="#tartalom">Ugrás a tartalomra</a>
+      </nav>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ms-auto">
+              <a class="nav-link" aria-current="page" href="../index.html">Kezdőlap</a>
+              <a class="nav-link" href="./felhok.html">Felhők</a>
+              <a class="nav-link" href="./iroda.html">Iroda</a>
+              <a class="nav-link active" href="./csuszdak.html">Csúszdák</a>
+              <button id="contrast-toggle" class="btn btn-outline-dark">High Contrast</button> <!-- High Contrast Toggle Button -->
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="container-lg rounded-3 content"> <!-- Main -->
+            <header>
+
+                <h1 id="tartalom">Vízi Csúszdák</h1>
+                <div class="row">
+                    <div class="col-sm">
+                        <p>Az alap igen egyszerű, csupán egy <b>Görbe</b> kell ami köré egy
+                            csövet készítünk, azonban, hogy élethű 
+                            lehessen, sok apró részlettel fogjuk felruházni
+                            amiket majd külön be fogunk tudni állítani, továbbá 
+                            az extra realizmus érdekében a procedurális
+                            <b>Anyagokat képekkel </b>fogjuk ötvözni.
+                        </p>
+                    </div>
+                    <div class="col-sm">
+                        <figure class="text-center">
+                            <img class="img-fluid rounded" src="../media/csuszda/abrak/CsuszdaThumb.png" alt="Vízi Csúszdák">
+                            <figcaption class="fst-italic">Mit fogunk csinálni?</figcaption>
+                        </figure>
+                    </div>    
+                </div>
+            </header>
+        <hr>
+    <main>
+        <div class="container">
+            
+            <article>
+                <h2>1. Lépés</h2>
+                <div class="row">
+                    <div class="col-sm">
+                        <p>Először hozzunk létre egy <b>Görbét</b> 
+                            aminek a részletességét a hosszához fogjuk igazítani.
+                            Különböző részekre fogjuk bontani a csúszdát amit a 
+                            végén összekombinálunk.
+                        </p>
+                      
+                    </div>
+                    <div class="col-sm">
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/csuszda/Kezdet.jpg" alt="A Geometry Nodes setup using a Group Input with the default Geometry and a created Resolution parameter we connect each to the corresponding input on a Resample Curve node">
+                            <figcaption class="fst-italic">Használt <span lang="en">Node</span>-ok</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </article>
+            <hr>
+            <article>    
+                <h2>2. Lépés - Csúszda test</h2>
+                <div class="row">
+                    <div class="col-sm">
+                        <p>  Alapból egy egyszerű cső lenne, de mi
+                             lehetővé tesszük más profil használatát 
+                             is egy opcionális objektummal
+                        </p>
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/csuszda/abrak/CsúszdaTestÁbra.jpg" alt="Saját profilú csúszda">
+                            <figcaption class="fst-italic">Saját profilú csúszda</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-sm">
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/csuszda/CsúszdaTest.jpg" alt="A Blender Geometry Nodes setup showing connections between various nodes.  The 'Group Input' node feeds into the 'Object Info' node, which is connected to the 'Transform' node.  The 'Curve' node is connected to the 'Switch' node, and then to the 'Geometry' node.  Other nodes, such as 'Mesh,' 'Selection,' and various 'Group Output' nodes, are linked within a network to process and manipulate geometry data.  The nodes appear to be set up for importing and modifying curves and meshes.  There is a  'Switch' node set to 'True,' which likely affects how other nodes function, suggesting conditional operations on geometry.">
+                            <figcaption class="fst-italic">A Csúszdatesthez használt <span lang="en">Node</span>-ok</figcaption>
+                        </figure>
+                        <aside>
+                            <details class="callout">
+                                <summary>Tipp: </summary>
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <p>A csúszda vonalát állítsuk <span lang="en"><b>Z-Up</b></span>-ra, hogy elkerüljük 
+                                            a saját profil esetén a torzulásokat!
+                                        </p>
+                                    </div>
+                                    <div class="col-sm">
+                                        <figure>
+                                            <img class="img-fluid rounded" src="../media/csuszda/FontosBeállítás.jpg" alt="A Z-Up beállítás az Objektum menün belül a Shape szekciónál">
+                                            <figcaption class="fst-italic">A <span lang="en">Z-Up</span> beállítás</figcaption>
+                                        </figure>
+                                    </div>
+                                </div>
+                            </details>
+                        </aside>
+                    </div>
+                </div>
+            </article>
+            <hr>
+            <article>
+                <h2>3. Lépés - Gyűrűk</h2>
+                <div class="row">
+                    <div class="col-sm ">
+                        <p>Külön modellezzük a gyűrűket amiket a következő lépésben majd példányosítunk <br>
+                            A profilunkat megnyújtjuk az oldalai 
+                            irányában majd korigáljuk az oldalak orientációját, 
+                            erre azért van szükség, mert <i>tükrözött vonalat</i> használunk, 
+                            aminek alapból rossz irányban vannak a <i>normái</i>.  
+                            (Erre nincs szükség, ha nem használod a tükrözést, 
+                            de ez automatizálja a munkát)
+                        </p>
+                        
+                            <figure>
+                                <img class="img-fluid rounded" src="../media/csuszda/SajátProfil.jpg" alt="Saját profilú gyűrű és a Mirror modifier X-re állítva">
+                                <figcaption class="fst-italic">Saját profilú gyűrű</figcaption>
+                            </figure>
+                            <p>
+                                A gyűrűk oldalain “kis gombokat” 
+                                példányosítunk, az extra részletekért. 
+                                Ehhez kiválasztjuk a megfelelő oldalakat 
+                                a normák skalárszorzatával. 
+                            </p>
+                            
+                    </div>
+                    <div class="col-sm">
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/csuszda/SajátGyűrű.jpg" alt="A Blender Geometry Nodes setup.  'Default Ring' node connects to 'Transform Geometry' node, which is connected to 'Switch' node.  'Custom' node is connected to 'Extrude Mesh' node.  'Group Input' nodes connect to various other nodes for different attributes and transformations.  This setup likely manipulates the geometry of a ring, with adjustments for different attributes like location, rotation and scale.">
+                            <figcaption class="fst-italic">A Gyűrűkhöz használt <span lang="en">Node</span>-ok</figcaption>
+                        </figure>
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/csuszda/GombokAGyűrűn.jpg" alt="A 'Ring' node is connected to an 'Absolute' node, which is connected to an 'Equal' node.  An 'Ico Sphere' node is connected to a 'Points' node, which connects to 'Instance on Points'.  A 'Set Material' node connects to a 'Join Geometry' node, and a 'Group Output' node.  Other nodes are interconnected to perform various geometric operations and transformations.">
+                            <figcaption class="fst-italic">Gombok példányosítása</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </article>
+            <hr>
+            <article>
+                <h2>4. Lépés – Gyűrűk elhelyezése</h2>
+                    <div class="row">
+                        <div class="col-sm">
+                            <p>A vonalunkon most gyűrűket fogunk elhelyezni, viszont 
+                                nem akarjuk, hogy ezek megjelenjenek a kezdő és végponton.
+                                 Ezért az indexek maradékai mellett azt is számításba vesszük, 
+                                 hogy a vonalunk végén vannak-e az adott pontok.
+                            </p>
+                            <figure>
+                                <img class="img-fluid rounded" src="../media/csuszda/abrak/GyűrűkÁbra.jpg" alt="A gyűrűk összehasonlítása">
+                                <figcaption class="fst-italic">A gyűrűk összehasonlítása</figcaption>
+                            </figure>
+                            <aside>
+                                <details class="callout">
+                                    <summary>Tipp: </summary>
+                                    <p>Ha többször is állítjuk a forgást jobb eredményt kapunk ezért használunk 2 
+                                        <span lang="en">Align Rotation to Vector Node</span>-ot!</p>
+                                </details>
+                            </aside>
+                        </div>
+                        <div class="col-sm">
+                            <figure>
+                                <img class="img-fluid rounded" src="../media/csuszda/GyűrűPéldányosítás.jpg" alt="A Blender Geometry Nodes setup titled 'Rings', featuring various interconnected nodes. On the left side, two 'Group Input' nodes labeled 'Index' and 'Ring Density' feed into the main section. The 'Selection' area is highlighted with three nodes—'Curve Tip', 'Nor', and 'Curve Root', with connections mapped through 'And' and 'Equal' nodes. Below, a 'Truncated Modulo' node with 'Clamp' functionality processes values before linking to an 'Align Rotation' node that adjusts transformations based on its 'Pivot' and 'Rotation' parameters. On the right side, the 'Instance on Points' node receives inputs from the 'Points', 'Selection', 'Instance', and 'Instance Index', controlling instances through specified rotations and scales. Finally, the 'Group Output' node at the bottom consolidates the outputted instances.">
+                                <figcaption class="fst-italic">A Gyűrűk példányosítására használt <span lang="en">Node</span>-ok</figcaption>
+                            </figure>
+                           
+                            <figure>
+                                <img class="img-fluid rounded" src="../media/csuszda/abrak/Test+Gyűrű.jpg" alt="A gyűrűk és csúszda test együtt saját profillal">
+                                <figcaption class="fst-italic">A gyűrűk és csúszda test együtt saját profillal</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+            </article>
+            <hr>
+            <article>
+                <h2>5. Lépés - Csúszdavég</h2>
+                <div class="row">
+                    <div class="col-sm">
+                        <p>Az alap modellhez használjunk egy <b>Alakzat Gyűrűt</b>. 
+                            A megnyújtott gyűrű pontjait úgy toljuk el, 
+                            hogy egy csúszda végére hasonlító alakot formázzon.
+                             Ehhez felhasználjuk a pontok x koordinátáját és 
+                             a rajzolunk egy <b>saját görbét</b> alaknak. Végül újra megnyújtjuk,
+                              hogy mélységet adjunk neki.
+                            </p>
+                            <aside>
+                                <details class="callout">
+                                    <summary>Tipp: </summary>
+                                    <div class="row">
+                                        <div class="col-sm">
+
+                                            <p>Felül a 3D-s megjelenítő felületen kapcsoljuk, be a 
+                                                <span lang="en">Face Orientation</span> opciót, hogy lássuk
+                                                helyes-e a modellünk. Ha kívül kék belül piros akkor a modellünk jó!</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm">
+                                            <figure>
+                                                <div class="same-w">
+                                                    <img class="img-fluid rounded" src="../media/csuszda/OldalIrányBeállítás.jpg" alt="Oldal irányának megjelenítése beállítás a fent található 3D megjelenítő leugró menüjében">
+                                                    <img class="img-fluid rounded" src="../media/csuszda/abrak/HelyesOrientáció.jpg" alt="A megjelenített oldalirányok. Kék a kifelé néző piros ami belül van">
+                                                </div>
+                                                <figcaption class="fst-italic">Oldal irányának megjelenítése beállítás és hatása</figcaption>
+                                            </figure>
+                                        </div>
+                                </details>
+                            </aside>
+                        
+                    </div>
+                    <div class="col-sm">
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/csuszda/AlapCsúszdaVég.jpg" alt="In this Blender Geometry Nodes setup, the 'Group Input' node is connected to both the 'Mesh Circle' and 'Multiply' nodes, specifically linking the 'Outer Radius' output to the 'Radius' input of 'Mesh Circle'. The 'Mesh Circle' outputs to the 'Extrude Mesh' node, where its 'Mesh' connects to the 'Mesh' input of 'Extrude Mesh'. The 'Up' vector is set to a Z component of 1.0. The 'Extrude Mesh' has its output wired to a 'Set Position' node via geometry connections. The 'Set Position' takes its geometry input from 'Extrude Mesh' and has its 'Offset' receiving information from a 'Combine XYZ' node with all components set to 0. The 'Float Curve' node is connected to the 'Map Range' node, which also serves as input to the 'Set Position' node, delivering the position values. The 'Map Range' node outputs results to the 'Float Curve', controlling its flow. Additionally, the 'Scale' node takes a vector input for resizing elements, subsequently linked to the 'Set Position' node. It connects to a 'Flip Faces' node after processing through extrusion, and its output is aimed into a 'Join Geometry' node. This node connects to the final 'Group Output', merging both extruded meshes. Each node is thoughtfully connected, displaying a clear flow of geometry transformation and manipulation.">
+                            <figcaption class="fst-italic">Az alap csúszdavég  alakjához használt <span lang="en">Node</span>-ok</figcaption>
+                        </figure>
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/csuszda/abrak/AlapcsúszdavégÁbra.jpg" alt="Eltolás mértéke a csúszdavégen (fehérebb több)">
+                            <figcaption class="fst-italic">Eltolás mértéke a csúszdavégen (fehérebb több)</figcaption>
+                        </figure>
+                    </div>
+                </div>
+		<section>
+
+                <h3>Választható Csúszdavég:</h3>
+                <div class="row">
+                    <!-- Text Section -->
+                    <div class="col-12 order-1 order-md-0">
+                        <p>
+                            A saját csúszdavégpont legyen egy 1 oldalú modell amit mi forgathatunk el a nekünk tetsző irányba. 
+                            A 2 csúszdavégpontot vezessük át egy <b>Váltón</b> ahol be tudjuk állítani akarjuk-e azt használni.
+                        </p>
+                    </div>
+            
+                    <!-- First Image -->
+                    <div class="col-12 col-md-6 order-2 order-md-1">
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/csuszda/abrak/1oldalúCsúszdavég.jpg" alt="Példa saját csúszdavégre">
+                            <figcaption class="fst-italic">Példa saját csúszdavégre</figcaption>
+                        </figure>
+                    </div>
+            
+                    <!-- Second Image -->
+                    <div class="col-12 col-md-6 order-3 order-md-2">
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/csuszda/CsúszdaVégpont.jpg" alt="This Blender Geometry Nodes setup includes various interconnected nodes. Starting from the top left, the 'Object Info' node is highlighted, with its 'Geometry' output connected to the 'Flip Faces' node's input. Below 'Object Info', the 'Group Input' node links to the 'Rotate 90° on X' node, which branches out and connects to the 'Extrude Mesh' node, passing through the 'Mesh' input and linking through to 'Slide End'. The output from 'Slide End' connects to both 'Join Geometry' and 'Switch' nodes at the top right. The 'Join Geometry' node has geometry inputs from both 'Flip Faces' and 'Extrude Mesh'. A second 'Group Input' node at the bottom connects via an orange line to 'Outer Radius'. The switch node has inputs controlling whether the output is 'True' or 'False', linking back to the main output. Each node is carefully outlined, with connections clearly marked by distinct lines, showcasing how the various elements interact in this procedural setup.">
+                            <figcaption class="fst-italic">Csúszdavégekhez használt <span lang="en">Node</span>-ok</figcaption>
+                        </figure>
+                    </div>
+                </div>
+		</section>
+		<section>
+                <h3>Csúszdavégek pozicionálása:</h3>
+                <div class="row">
+                    <div class="col-sm">
+                        <p>
+                            Válasszuk ki a vonalunk végét és példányosítsuk ezen a 
+                            ponton a csúszdánk végét. 
+                            Alapból lehet benne egy kis forgási eltérés, 
+                            ezért ezt manuálisan kell korigálnunk. 
+                            A látszólagos vágás miatt nem kell aggódnunk, 
+                            mert nem fog a végső képe látszani
+                        </p>
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/csuszda/abrak/CsúszdákVégekkel.jpg" alt="Csúszda végekkel együtt">
+                            <figcaption class="fst-italic">Csúszda végekkel együtt</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-sm">
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/csuszda/SlideEndPositioning.jpg" alt="In a Blender Geometry Nodes setup, the flow of connections begins at the Group Input, leading to a Capture Attribute node. The Capture Attribute node is linked to a Curve Root node. From the Curve Root, there are pathways to Z Only and To Radians nodes. The Z Only node connects directly to the Set Rotation node, which then links to an Align Rotation to Vector node. The Align Rotation to Vector node is positioned above a Group Input designated as End Rotation. The Set Rotation node is connected to an Instance on Points node where the Points and Selection fields are linked. Additionally, the Set Material node takes input from the Geometry output of the Instance on Points node. The material is specified as Slide, linking back to the Group Output node.">
+                            <figcaption class="fst-italic">Csúszda végének pozicionálásához használt <span lang="en">Node</span>-ok</figcaption>
+                        </figure>
+                    </div>
+                </div>
+		</section>
+            </article>
+            <hr>
+            <article>
+                <h2>6. Lépés – Tartó sín</h2>
+                <div class="row">
+                    <div class="col-sm">
+                        <p>
+                            A legnagyobb problémánk ugyanaz mint a gyűrűknél: elérni,
+                             hogy csak a végpontok között jelenjen meg a “sínünk” viszont 
+                             itt a végpontok az első és utolsó gyűrű. 
+                             Az első gyűrűig azok a pontok lesznek amik indexeinek maradéka
+                              nem volt 0. A magasabb indexű pontokra ez a feltétel nem fog 
+                              illeszkedni, hisz minden maradék maximum az általunk beállított
+                               sűrűségig mehet. Az utolsó pont megkapásához csak meg kell 
+                               fordítanunk az indexelést és használhatjuk ugyanazt a trükköt. <br>
+                               (A <span lang="en">Node</span> Csoprton kívül az Index és a <span lang="en"><b>Domain Size Node</b></span>-okat használtuk)
+                        </p>
+                    </div>
+                    <div class="col-sm">
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/csuszda/SínKiválasztás.jpg" alt="The image depicts a Blender Geometry Nodes setup featuring two main sections: an 'End section' and a 'Start section'. In the 'End section', an 'Index' node connects to an 'Equal' node, which outputs a result indicating equality between two integers labelled 'A' and 'B'. This 'Equal' node connects to an 'Or' Boolean node on its right. Additionally, there is a 'Truncated Modulo' node connected to the 'Equal' node and this node receives input from a 'Group Input' node labelled 'Ring density', while the 'Index' node also connects to a 'Point Count' node. In the 'Start section', an 'Index' node connects to a 'Subtract' node, which is linked to another 'Equal' node that checks equality between integers 'A' and 'B'. The 'Subtract' node also connects to a 'Truncated Modulo' node, which in turn connects to a similar 'Group Input' node labelled 'Ring density'. Both sections share a structure of nodes that process geometric information through various mathematical and logical operations.">
+                            <figcaption class="fst-italic">A kiválasztáshoz használt <span lang="en">Node</span>-ok</figcaption>
+                        </figure>
+                    </div>
+                </div>
+		<section>
+                <h3>Sínek kialakítása:</h3>
+                <div class="row">
+                    <div class="col-sm">
+                        <p>
+                            A végpontok törlése után a csúszda két 
+                            szélére kell igazítanunk a kezdeti vonalunkat.
+                             Mivel mi adjuk meg a csúszda méreteit pontos 
+                             helyre tudjuk igazítani a síneket. <br>
+                             Miután alakot adtunk a vonalainknak a gyűrűkhöz 
+                             hasonlóan gombokat helyezünk el a sínek tetején .
+                        </p>
+                    </div>
+                    <div class="col-sm">
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/csuszda/MellékSzálak.jpg" alt="In this Blender Geometry Nodes setup, the 'Group Input' node connects to the 'Index' and 'Max Index' parameters, leading to the 'Point Count' node. The 'Point Count' flows into a 'Subtract' node in the lower purple section, which is also connected to another 'Group Input' for 'Ring Density'. An 'End Section' follows with connections from 'Index' and 'Point Count', linking to a 'Group Input' and an 'Equal' node that checks for value equality. Another path connects to an 'Or' boolean node, which combines inputs from two 'Equal' nodes. The results from the 'Or' node are directed towards a 'Delete Ends' node managing geometry selection. The 'Offset' section further processes 'Normal' and 'Scale' inputs before linking to a 'Set Position' node, where geometry and selections are paired. The output flows to a 'Join Geometry' node that consolidates geometry from the 'Curve to Mesh' along with settings from a 'Set Material' node. The 'Knobs' area features a 'Mesh to Points' node creating instances that are then passed to an 'Instance on Points' node directing geometry to 'Set Material', concluding with metal selections and instance parameters.">
+                            <figcaption class="fst-italic">A sínekhez használt <span lang="en">Node</span>-ok</figcaption>
+                        </figure>
+                    </div>
+                    <div class="d-flex justify-content-center">
+
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/csuszda/abrak/SínekÁbra.jpg" alt="A csúszda sínekkel az oldala mentén">
+                            <figcaption class="fst-italic">A csúszda sínekkel</figcaption>
+                        </figure>
+                    </div>
+                </div>
+		</section>
+            </article>
+            <hr>
+            <article>
+                <h2>7. lépés – Összeállítás</h2>
+                <div class="row">
+                    Ezzel be is fejeztük a csúszdánkat, már csak össze kell állítani az eddigi részeket.    
+                </div>
+                <div class="row">
+                    <figure>
+                        <img class="img-fluid rounded" src="../media/csuszda/Vége.jpg" alt="The image shows a Blender Geometry Nodes setup. The main structure consists of various nodes connected with lines. A 'Group Input' node is connected to a 'Slide End' node, which subsequently connects to a 'Rings' node. 'Rings' has multiple connections branching out: one to 'Join Geometry', one merging with 'Merge by Distance', and another connecting to a 'Slide Body' node. 'Slide Body' has an input from the 'Join Geometry'. The 'Index' node connects to both the 'Rings' and the 'Rails' nodes, which have separate 'Group Input' connections for parameters like 'Ring Density', 'Radius', and 'Outer Radius'. Below, 'Resample Curve' also connects to another 'Group Input' node, indicating a 'Curve' parameter. The 'Bake' node follows the 'Join Geometry', storing attributes from the geometry, which connects to a 'Group Output'. The entire layout is methodically arranged, showcasing the flow of geometry through various processing points.">
+                        <figcaption class="fst-italic">A teljes <span lang="en">Node</span> háló</figcaption>
+                    </figure>
+                </div>
+            </article>
+            <hr>
+            <article>
+                <h2>8. Lépés – Anyag</h2>
+                    <div class="row">
+                        <div class="col-sm">
+                            <p>A 7. lépésben eltároltunk egy úgynevezett 
+                                <span lang="en">Attribute</span>-ot. Ezt használva tudunk 
+                                majd különböző színeket adni a csúszdáinknak. <br>
+                                Az anyaghoz egy az <a href="../index.html#erof">Ingyenes erőforrások</a>  
+                                részben említett weboldalról letöltöttem egy 
+                                Műanyag textúrát amit különböző
+                                 <i>Zajokkal</i> egészítettem ki. 
+                                 Az elmentett tulajdonságot felhasználva az 
+                                 általunk kiválasztott színnel átfedjük a műanyag textúrát. <br>
+                                 Végül mixeljük össze a fő anyagunkat egy 
+                                fényáteresztővel, hogy a csúszdánk belseje 
+                                ne legyen teljesen sötét.
+
+
+                            </p>
+                        </div>
+                        <div class="col-sm">
+                            <figure>
+                                <img class="img-fluid rounded" src="../media/csuszda/Anyag.jpg" alt="A detailed Blender Geometry Nodes setup presenting various interconnected nodes. The 'Texture Coordinate' node, in pink, connects to a 'Mapping' node, which leads to two output nodes: 'Voronoi Texture' and 'Noise Texture', both in brown. The output from the 'Mapping' node is further routed to a 'Color Ramp' node, from which two outputs progress into a 'Multiply' node in green. This green node outputs to a 'Bump' node, which is linked to another 'Multiply' node. Additionally, the 'Mapping' node feeds into an 'Overlay' node in yellow, which takes input from two texture images, 'Plastic010_1K-JPG_Color.jpg' and 'Plastic010_1K-JPG_Roughness.jpg'. The output from the 'Overlay' node connects to a 'Principled BSDF' node, which then merges into a 'Mix Shader' node alongside a 'Translucent BSDF' node, leading to the final 'Material Output' node represented in maroon. Each node's connections are outlined by clearly visible colour-coded lines, indicating the flow from one element to the next.">
+                                <figcaption class="fst-italic">A csúszdák Anyagához használt <span lang="en">Node</span>-ok</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+            </article>
+            <hr>
+            <article>
+                <h2>Befejezés</h2>
+                <p>Mivel minden amit csináltunk procedurális,
+                     ezért akárhányszor újra használhatjuk. Ennek köszönhetően percek alatt készíthetünk egy egész csúszdaparkot!</p>
+                     <div class="d-flex justify-content-center">
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/csuszda/abrak/CsuszdaThumb.png" alt="Vízi csúszdapark">
+                            <figcaption class="fst-italic">Az elkészült csúszdapark</figcaption>
+                        </figure>
+                    </div>
+            </article>
+        </div>
+    </main>
+</div> <!-- Main -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script src="../js/high-contrast.js"></script> <!-- High Contrast JS -->
+
+</body>
+</html>

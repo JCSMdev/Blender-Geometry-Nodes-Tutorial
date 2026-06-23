@@ -1,0 +1,25 @@
+WEBVTT
+
+00:00.000 --> 00:04.000
+The creator starts by drawing a curve and then shapes it into a cylindrical pipe.
+
+00:04.000 --> 00:10.000
+In edit mode, they increase the bevel and resolution, select an edge loop, and mark it as a seam. All faces are then unwrapped and aligned to a grid using a UV squares add-on.
+
+00:10.000 --> 00:17.000
+A new material is created, and an image texture is added.
+
+00:17.000 --> 00:21.000
+The geometry of the pipe is then modified to match the details of the image texture, with edge loops being added and scaled.
+
+00:21.000 --> 00:27.000
+Individual face loops are selected and textured separately in the UV editor.
+
+00:27.000 --> 00:38.000
+More loops are added. A weed fan module is extruded out, creating a bulging section in the pipe. A loop is duplicated, extruded, and faces are pulled down to form a pipe mount.
+
+00:38.000 --> 00:48.000
+In the shader editor, the material is adjusted to be more metallic, and the image texture is used to control the roughness via a color ramp.
+
+00:48.000 --> 00:54.000
+The process is repeated, and the creator humorously declares the viewer as the "pipe lord" before concluding with the statement "everything's pipes."

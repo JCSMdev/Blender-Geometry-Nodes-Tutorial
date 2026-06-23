@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Procedurális Generálás - Kezdőlap</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/Kezdolap/klapcustom.css">
+  <link rel="stylesheet" href="./css/Kezdolap/high-contrast.css">
+</head>
+
+<body>
+  
+  <nav>
+    <h2 class="visually-hidden">Ugrás a tartalomra</h2>
+    <a class="visually-hidden-focusable skip-link" href="#tartalom">Ugrás a tartalomra</a>
+  </nav>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link active" aria-current="page" href="#tartalom">Kezdőlap</a>
+          <a class="nav-link" href="./Kurzusok/felhok.html">Felhők</a>
+          <a class="nav-link" href="./Kurzusok/iroda.html">Iroda</a>
+          <a class="nav-link" href="./Kurzusok/csuszdak.html">Csúszdák</a>
+          <button id="contrast-toggle" class="btn btn-outline-dark">High Contrast</button>
+          <!-- High Contrast Toggle Button -->
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container-lg rounded-3 content"> <!-- Main -->
+
+
+
+    <!-- Video Section -->
+    <div class="video-container">
+      <video class="bg-video" src="media/Kezdolap/video/KezdőlapVideó.mp4" autoplay loop muted poster="media/Kezdolap/video/AuthoThumb.jpg"></video>
+      <div class="overlay-gradient"></div>
+      <div class="video-text text-white">
+        <h1>A procedurális<br>generálás<br>ereje</h1>
+      </div>
+    </div>
+    <!-- Kurzusok -->
+    <main id="tartalom">
+      <hr>
+      <h2>Kurzusok</h2>
+      <div id="kurzusok">
+        <!-- Carousel for small screens -->
+        <div id="kurzusokCarousel" class="carousel slide d-lg-none" data-bs-ride="carousel">
+
+
+          <div class="carousel-inner">
+            <!-- Slide 1: Felhők -->
+            <div class="carousel-item active">
+              <a href="./Kurzusok/felhok.html">
+                <div class="rounded zoom-container">
+                  <img src="./media/Kezdolap/kepek/Felhők.png" class="d-block w-100 zoom-img" alt="Felhők">
+                </div>
+              </a>
+              <aside>
+                <div class="table-responsive mt-3">
+                  <table class="table table-bordered text-center">
+                    <caption class="text-center">
+                      <details>
+                        <summary>Leírás</summary>
+                        <p>
+                          A kurzus folyamán el fogunk készíteni egy paraméterezett felhőket generáló programot amit
+                          akárhányszor újrahasználhatunk.
+                        </p>
+                      </details>
+                    </caption>
+                    <thead>
+                      <tr>
+                        <th colspan="2">Felhők</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Nehézség</th>
+                        <td>Könnyű</td>
+                      </tr>
+                      <tr>
+                        <th>Idő</th>
+                        <td>15 perc</td>
+                      </tr>
+                      <tr>
+                        <th>Egyéb</th>
+                        <td>Nincs</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </aside>
+            </div>
+
+            <!-- Slide 2: Benőtt Iroda -->
+            <div class="carousel-item">
+              <a href="./Kurzusok/iroda.html">
+                <div class="rounded zoom-container">
+                  <img src="./media/Kezdolap/kepek/Benőtt_Iroda.png" class="d-block w-100 zoom-img" alt="Benőtt Iroda">
+                </div>
+              </a>
+              <aside>
+                <div class="table-responsive mt-3">
+                  <table class="table table-bordered text-center">
+                    <caption class="text-center">
+                      <details>
+                        <summary>Leírás</summary>
+                        <p>
+                          A kurzus folyamán el fogunk készíteni egy változtatható irodai plafont és növényzet szőnyeget,
+                          valamint megtanuljuk, hogyan használjunk 3. féltől származó erőforrásokat effektíven.
+                        </p>
+                      </details>
+                    </caption>
+                    <thead>
+                      <tr>
+                        <th colspan="2">Benőtt Iroda</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Nehézség</th>
+                        <td>Közepes</td>
+                      </tr>
+                      <tr>
+                        <th>Idő</th>
+                        <td>30 perc</td>
+                      </tr>
+                      <tr>
+                        <th>Egyéb</th>
+                        <td>Külön modellek</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </aside>
+
+            </div>
+
+            <!-- Slide 3: Vízi Csúszdák -->
+            <div class="carousel-item">
+              <a href="./Kurzusok/csuszdak.html">
+                <div class="rounded zoom-container">
+                  <img src="./media/Kezdolap/kepek/Csúszdák.png" class="d-block w-100 zoom-img" alt="Vízi Csúszdák">
+                </div>
+              </a>
+              <aside>
+                <div class="table-responsive mt-3">
+                  <table class="table table-bordered text-center">
+                    <caption class="text-center">
+                      <details>
+                        <summary>Leírás</summary>
+                        <p>
+                          A kurzus folyamán el fogunk készíteni egy rendkívül változatos csúszda generátort.
+                        </p>
+                      </details>
+                    </caption>
+                    <thead>
+                      <tr>
+                        <th colspan="2">Vízi Csúszdák</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Nehézség</th>
+                        <td>Közepes</td>
+                      </tr>
+                      <tr>
+                        <th>Idő</th>
+                        <td>30 perc</td>
+                      </tr>
+                      <tr>
+                        <th>Egyéb</th>
+                        <td>Külön Textúra</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </aside>
+            </div>
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#kurzusokCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Előző</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#kurzusokCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Következő</span>
+          </button>
+        </div>
+
+        <!-- Static Grid for large screens -->
+        <div class="d-none d-lg-block mt-4">
+          <div class="row">
+            <!-- Felhők -->
+            <div class="col-lg-4 mb-4">
+              <a href="./Kurzusok/felhok.html">
+                <div class="rounded zoom-container">
+                  <img src="./media/Kezdolap/kepek/Felhők.png" class="d-block w-100 zoom-img" alt="Felhők">
+                </div>
+              </a>
+              <aside>
+                <div class="table-responsive mt-2">
+                  <table class="table table-bordered text-center">
+                    <caption class="text-center">
+                      <details>
+                        <summary>Leírás</summary>
+                        <p>
+                          A kurzus folyamán el fogunk készíteni egy paraméterezett felhőket generáló programot amit
+                          akárhányszor újrahasználhatunk.
+                        </p>
+                      </details>
+                    </caption>
+                    <thead>
+                      <tr>
+                        <th colspan="2">Felhők</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Nehézség</th>
+                        <td>Könnyű</td>
+                      </tr>
+                      <tr>
+                        <th>Idő</th>
+                        <td>15 perc</td>
+                      </tr>
+                      <tr>
+                        <th>Egyéb</th>
+                        <td>Nincs</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </aside>
+            </div>
+
+            <!-- Benőtt Iroda -->
+            <div class="col-lg-4 mb-4">
+              <a href="./Kurzusok/iroda.html">
+                <div class="rounded zoom-container">
+                  <img src="./media/Kezdolap/kepek/Benőtt_Iroda.png" class="d-block w-100 zoom-img" alt="Benőtt Iroda">
+                </div>
+              </a>
+              <aside>
+                <div class="table-responsive mt-2">
+                  <table class="table table-bordered text-center">
+                    <caption class="text-center">
+                      <details>
+                        <summary>Leírás</summary>
+                        <p>
+                          A kurzus folyamán el fogunk készíteni egy változtatható irodai plafont és növényzet szőnyeget,
+                          valamint megtanuljuk, hogyan használjunk 3. féltől származó erőforrásokat effektíven.
+                        </p>
+                      </details>
+                    </caption>
+                    <thead>
+                      <tr>
+                        <th colspan="2">Benőtt Iroda</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Nehézség</th>
+                        <td>Közepes</td>
+                      </tr>
+                      <tr>
+                        <th>Idő</th>
+                        <td>30 perc</td>
+                      </tr>
+                      <tr>
+                        <th>Egyéb</th>
+                        <td>Külön modellek</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </aside>
+            </div>
+
+            <!-- Vízi Csúszdák -->
+            <div class="col-lg-4 mb-4">
+              <a href="./Kurzusok/csuszdak.html">
+                <div class="rounded zoom-container">
+                  <img src="./media/Kezdolap/kepek/Csúszdák.png" class="d-block w-100 zoom-img" alt="Vízi Csúszdák">
+                </div>
+              </a>
+              <aside>
+                <div class="table-responsive mt-2">
+                  <table class="table table-bordered text-center">
+                    <caption class="text-center">
+                      <details>
+                        <summary>Leírás</summary>
+                        <p>
+                          A kurzus folyamán el fogunk készíteni egy rendkívül változatos csúszda generátort.
+                        </p>
+                      </details>
+                    </caption>
+                    <thead>
+                      <tr>
+                        <th colspan="2">Vízi Csúszdák</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Nehézség</th>
+                        <td>Közepes</td>
+                      </tr>
+                      <tr>
+                        <th>Idő</th>
+                        <td>30 perc</td>
+                      </tr>
+                      <tr>
+                        <th>Egyéb</th>
+                        <td>Külön Textúra</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <article>
+        <h2>Segédletek</h2>
+
+        <div class="d-flex justify-content-between flex-wrap">
+          <div class="sep">
+            <h3>Hasznos Csatornák</h3>
+            <ul>
+              <li><a target="_blank" href="https://www.youtube.com/@IanHubert2?app=desktop&cbrd=1&ucbcb=1">Realisztikus
+                  Gyors modellezés</a></li>
+
+              <li><a target="_blank" href="https://www.youtube.com/@BlenderSecrets?app=desktop&cbrd=1">Gyors tippek</a>
+              </li>
+              <li><a target="_blank" href="https://www.youtube.com/@harryblends/videos?app=desktop&cbrd=1"><span
+                    lang="en">Geometry Nodes</span></a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Hivatalos oldalak</h3>
+            <ul>
+              <li><a target="_blank" href="https://www.blender.org"><span lang="en">Blender</span></a></li>
+              <li><a target="_blank"
+                  href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/index.html"><span
+                    lang="en">Geometry Nodes</span> Dokumentáció</a></li>
+            </ul>
+          </div>
+        </div>
+        
+
+          <div class="ratio ratio-4x3 m-2 mx-auto h-25">
+            <video controls class="w-100 h-100" src="./media/Kezdolap/video/IanHubertPipes.mp4" poster="media/Kezdolap/kepek/IanPipes_thumb.jpeg" >
+            </video>
+        </div>
+        <details class="m-2 mx-auto">
+          <summary>Átiratok</summary>
+          <p>
+            <span lang="en">
+            The creator starts by drawing a curve and then shapes it into a cylindrical pipe.
+            In edit mode, they increase the bevel and resolution, select an edge loop, and mark it as a seam. All
+            faces are then unwrapped and aligned to a grid using a UV squares add-on.
+            A new material is created, and an image texture is added.
+            The geometry of the pipe is then modified to match the details of the image texture, with edge loops
+            being added and scaled.
+            Individual face loops are selected and textured separately in the UV editor.
+            More loops are added. A weed fan module is extruded out, creating a bulging section in the pipe. A loop
+            is duplicated, extruded, and faces are pulled down to form a pipe mount.
+            In the shader editor, the material is adjusted to be more metallic, and the image texture is used to
+            control the roughness via a color ramp.
+            The process is repeated, and the creator humorously declares the viewer as the "pipe lord" before
+            concluding with the statement "everything's pipes."
+          </span>
+        </p>
+      </details>
+      </article>
+      <hr>
+      <article>
+        <h2>Ingyenes Erőforrások</h2>
+        <div id="erof" class="d-flex justify-content-between flex-wrap">
+          <div class="sep">
+            <h3>Textúrák</h3>
+            <ul>
+              <li><a target="_blank" href="https://ambientcg.com/list?type=material%2Catlas%2Cdecal&sort=popular">PBR
+                  Textúrák 1</a></li>
+              <li><a target="_blank" href="https://polyhaven.com/textures">PBR Textúrák 2</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>3D modellek</h3>
+            <ul>
+              <li><a target="_blank" href="https://ambientcg.com/list?type=3d-model&sort=popular">Tárgyak</a></li>
+              <li><a target="_blank" href="https://sketchfab.com/">Mindenféle</a></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+      <hr>
+    </main>
+    <!-- Űrlap -->
+    <h2>Ötlet beküldése</h2>
+    <form action="mailto:ml6kvl@inf.elte.hu" method="post">
+
+      <div class="row">
+        <!-- Form section on larger screens takes 8/12 columns and adjusts to full width on smaller screens -->
+        <div class="col-lg-8 col-12">
+          <fieldset>
+            <label for="otlet"><strong>Ötlet</strong></label><br>
+            <input class="w-100" type="text" name="otletleiras" id="otlet" size="60" maxlength="200" required><br>
+            <label for="kifejtes"><strong>Kifejtés</strong></label><br>
+            <textarea class="w-100" cols="60" rows="10" name="kifejteshosszan" id="kifejtes" maxlength="1000"
+              placeholder="Fejtsd ki az ötleted"></textarea>
+          </fieldset>
+        </div>
+
+
+        <div class="col-lg-4 col-md-12 d-sm-flex flex-wrap justify-content-around">
+          <fieldset>
+            <!-- Radió és Email -->
+            <div class="d-flex flex-wrap justify-content-sm-left">
+              <div class="m-3">
+                <ul class="input-list">
+                  <li><input type="radio" name="g1" id="javaslat" required><label
+                      for="javaslat"><strong>Javaslat</strong></label></li>
+                  <li><input type="radio" name="g1" id="problema"><label
+                      for="problema"><strong>Probléma</strong></label></li>
+                  <li><input type="radio" name="g1" id="egyeb"><label for="egyeb"><strong>Egyéb</strong></label></li>
+                </ul>
+              </div>
+
+              <div class="m-3">
+                <ul class="input-list">
+                  <li><input type="checkbox" name="ertesites" id="ertesit"><label for="ertesit"><strong>Értesítés
+                        küldése</strong></label></li>
+                  <li><input type="email" name="cim" id="emcim" placeholder="e-mail" maxlength="50"></li>
+                </ul>
+              </div>
+            </div>
+
+          </fieldset>
+          <div>
+            <fieldset class="d-flex flex-wrap justify-content-around">
+              <!-- Küldés -->
+
+              <legend class="text-center">Adatok elküldése</legend>
+              <input type="submit" value="Elküld" class="btn btn-primary m-1">
+              <input type="reset" value="Töröl" class="btn btn-danger m-1">
+            </fieldset>
+          </div>
+        </div>
+      </div>
+
+    </form>
+    <!-- Bootstrap JS -->
+    <footer>
+      <h2>Kontaktok</h2>
+      <ul>
+        <li>Készítette: Juhász Csaba Mátyás</li>
+        <li>ml6kvl@inf.elte.hu</li>
+        <li><time datetime="2025-04-19">2025.04.19</time></li>
+      </ul>
+
+
+
+    </footer>
+  </div> <!-- /Main -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+  <script src="./js/high-contrast.js"></script> <!-- High Contrast JS -->
+</body>
+
+</html>

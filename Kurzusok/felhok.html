@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procedurális Generálás - Felhők</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/Kurzus/kurzcustom.css">
+    <link rel="stylesheet" href="../css/Kezdolap/high-contrast.css">
+
+</head>
+<body>
+    <nav>
+        <h2 class="visually-hidden">Ugrás a tartalomra</h2>
+        <a class="visually-hidden-focusable skip-link" href="#tartalom">Ugrás a tartalomra</a>
+      </nav>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ms-auto">
+              <a class="nav-link" aria-current="page" href="../index.html">Kezdőlap</a>
+              <a class="nav-link active" href="./felhok.html">Felhők</a>
+              <a class="nav-link" href="./iroda.html">Iroda</a>
+              <a class="nav-link" href="./csuszdak.html">Csúszdák</a>
+              <button id="contrast-toggle" class="btn btn-outline-dark">High Contrast</button> <!-- High Contrast Toggle Button -->
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="container-lg rounded-3 content"> <!-- Main --> 
+            <header>
+
+                <h1 id="tartalom">Egyszerű felhők</h1>
+                <div class="row">
+                    <div class="col-sm">
+                        <p>Az alapötlet az, hogy egy <b>Görbe</b> Objektumon hajtunk végre különböző transzformációkat addig amíg nem kapunk egy felhőre emlékeztető alakot. 
+                            Ha ezzel megvagyunk <b>Gömböket</b> helyezünk el az  alakzatunkon belül, amit már csak át kell alakítanunk <b>Köddé</b> levágni az alját és kissé deformálni azt
+                            Íme a lépések:
+                        </p>
+                    </div>
+                    <div class="col-sm">
+                        <figure class="text-center">
+                            <img class="img-fluid rounded" src="../media/felhok/nagykep/Felhők.png" alt="Felhők ">
+                            <figcaption class="fst-italic">Mit fogunk csinálni?</figcaption>
+                        </figure>
+                    </div>    
+                </div>
+            </header>
+        <hr>
+        <main>
+            <article>
+                <h2>1. Lépés</h2>
+                <div class="row">
+                    <div class="col-sm">
+                        <p>Először hozzunk létre egy <b>Vonalat</b> 
+                            Mivel alapból 2 pontból áll egy vonal ezért azt átalakítjuk, majd ahogy 
+                            azt a tervben írtam deformáljuk egy kis zajjal, az organikusabb hatás érdekében. 
+                            Ha valamelyik változót kívülről is irányítani szeretnénk azt a <span lang="en">Group Input</span> segítségével megtehetjük.
+                        </p>
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/felhok/nagykep/VonalZajjalÁbra.png" alt="Az eltorzított vonal">
+                            <figcaption class="fst-italic">Az eltorzított vonal</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-sm">
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/felhok/nagykep/Vonal_Zajjal.png" alt="Blender Geometry Nodes setup divided into two labeled sections: 'Line' at the top and 'Noise' at the bottom. In the 'Line' section, an 'Input' node provides 'Length' to a 'Combine XYZ' node as the X input. The output vector connects to the 'End' input of a 'Curve Line' node. This curve is passed to a 'Resample Curve' node set to count mode with 16 points, and then to a 'Set Position' node as its Geometry input. In the 'Noise' section, a 'Group Input' provides 'H Seed' to the W input of a 'Noise Texture' node set to 4D fBM with Normalize checked. The 'Fac' output of the noise goes into a 'Map Range' node, which remaps values from 0–1 to -1 to 1. The result goes into a 'Multiply' node, which multiplies it by a 'Spread' value from another 'Group Input'. The result is fed into the Y input of a 'Combine XYZ' node, whose output goes to the 'Offset' input of the 'Set Position' node from the Line section.">
+                            <figcaption class="fst-italic">Használt <span lang="en">Node</span>-ok</figcaption>
+                        </figure>
+                        <aside>
+                            <details class="callout">
+                                <summary>Tipp: </summary>
+                                <p>Ha kijelölsz egy <span lang="en"><i>Node</i></span>-ot a <kbd>CTRL</kbd>+<kbd>H</kbd> billentyű kombinációval el tudod rejteni a nem használt bemeneteket</p>
+                              </details>
+                        </aside>
+                    </div>
+                </div>
+            </article>
+            <hr>
+            <article>    
+                <h2>2. Lépés</h2>
+                <div class="row">
+                    <div class="col-sm">
+                        <p>  A felhő alakjának kialakításában használjuk a <span lang="en"><i>Spline Parameter</i></span>-t ami megadja hol vagyunk a 
+                            <b>Vonal</b> kezdete és vége közt. Ezt az értéket úgy módosítjuk, hogy a végeken a felhőnk 
+                            összeszűküljön és adunk hozzá egy kis <b>Zajt</b>, hogy ne legyen olyan egyforma.
+                            A több kontrol érdekében a <b>Zajt 4D-re</b>állíthatjuk, majd a <i>W</i> bemenetet 
+                            módosítva különböző variációkat kaphatunk. Ezután a <b>Vonalunkat</b> tényleges
+                            <b>Alakzattá</b> alakítjuk és megnyújtjuk kicsit.
+                        </p>
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/felhok/nagykep/AlapAlakÁbra.png" alt="Vonal átmérővel">
+                            <figcaption class="fst-italic">Vonal átmérővel</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-sm">
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/felhok/nagykep/AlapalakzatJavított.png" alt="Blender Geometry Nodes setup with two labeled sections: 'Mesh' at the top and 'Shape' at the bottom. In the 'Mesh' section, a 'Set Curve Radius' node receives input from the bottom Shape section and outputs to 'Curve to Mesh', which uses a 'Curve Circle' node (set to 11 resolution and 0.4m radius) as its profile curve. The resulting mesh is passed to a 'Transform Geometry' node, which scales it using a vector from 'Combine XYZ' (1.0, 0.8, 3.5). In the 'Shape' section, a 'Spline Parameter' node outputs 'Factor' to a 'Float Curve' node with a custom graph. The output of this curve is multiplied twice: once by 2.3 and once by a noise value. The noise is generated from a 'Noise Texture' node (4D fBM with Normalize enabled), with 'W' driven by a 'Seed' from 'Group Input'. The noise result is multiplied with the curve shape and passed back up to the 'Set Curve Radius' node.">
+                            <figcaption class="fst-italic">Használt <span lang="en">Node</span>-ok</figcaption>
+                        </figure>
+                        <aside>
+                            <details class="callout">
+                                <summary>Tipp: </summary>
+                                <p>Ha használjuk a <a target="_blank" href="https://docs.blender.org/manual/en/latest/addons/node/node_wrangler.html"><span lang="en">Node-Wrangler</span></a>
+                                kiegészítőt <kbd>SHIFT</kbd>+<kbd>JOBB KLIKK</kbd>-el metszve az összeköttetéseket, új csomópontot szúrhatunk be.</p>
+                            </details>
+                        </aside>
+                    </div>
+                </div>
+            </article>
+            <hr>
+            <article>
+                <h2>3. Lépés</h2>
+                <div class="row">
+                    <div class="col-sm">
+                        <p>Ez most nem túl szép, de mindjárt azzá tesszük. 
+                            A kapott alakzatunkat már tudjuk módosítani <b>Köddé</b> amin belül már tudunk példányosítani Gömböket. 
+                            Ismét használunk egy Zajt amit most a Gömbök méreteinek állításához használunk.
+                             A kívánt hatás eléréséhez kiterjesztjük a kapott zaj értékeinek korlátjait. 
+                             Fontos hogy a példányokat véglegesítsük, mert e nélkül nem tudnánk őket megfelelően módosítani</p>
+                             <figure>
+                                <img class="img-fluid rounded" src="../media/felhok/nagykep/GömbökÁbra.png" alt="Vonal menti gömbök">
+                                <figcaption class="fst-italic">Vonal menti gömbök</figcaption>
+                            </figure>
+                    </div>
+                    <div class="col-sm">
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/felhok/nagykep/GömbökJavított.png" alt="Blender Geometry Nodes setup titled 'Main Shape'. It starts with a 'Mesh to Volume' node, set to Voxel Amount resolution (64) and density 1.0, which outputs to 'Distribute Points in Volume' using random distribution and a seed of 0. This node receives density input from 'Group Input'. The points go into 'Instance on Points' to place an 'Ico Sphere' (radius 0.9, subdivisions 2) at each location. The instances are finalized by 'Realize Instances'. For instance scaling, a 'Noise Texture' node (3D, fBM, normalized) outputs a factor, which is remapped using 'Map Range' (from 0.4–1.0 to 0.2–2.0) and connected to the Scale input of 'Instance on Points'. The noise is driven by a Vector input with values Scale 12.6, Detail 2.1, Roughness 0.5, Lacunarity 2.0, and Distortion 0.0.">
+                            <figcaption class="fst-italic">Használt <span lang="en">Node</span>-ok</figcaption>
+                        </figure>
+                        <aside>
+                            <details class="callout">
+                                <summary>Tipp: </summary>
+                                <p>A <a  target="_blank"href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/instances.html">Hivatalos Oldalon</a> 
+                                    bővebb információkat is találhatsz a példányosításról és egyéb koncepciókról.</p>
+                            </details>
+                        </aside>
+                    </div>
+                </div>
+            </article>
+            <hr>
+            <article>
+                <h2>4. Lépés</h2>
+                    <div class="row">
+                        <div class="col-sm">
+                            <p>A véglegesített példányokat köddé alakítjuk, nem érdemes a részletességet (<span lang="en"><i>Voxel Amount</i></span>) túl magasra venni, 
+                            ezzel az a célunk, hogy <b>Alakzattá </b> tudjuk rajta alkalmazni az <b>alakzat kivonás</b> műveletét, 
+                            azaz levágjuk az alját a saját méreteit felhasználva. Ne felejtsük el az <b>Alakzatot Behatároló Doboz</b> pozícióját úgy 
+                            módosítani, hogy az csak a felhőnk alját vágja le, különben eltűnhet az egész munkánk! 
+                            (Persze ez bármikor korrigálható a <i>Procedurális Munkamenetnek</i> köszönhetően)</p>
+                            <figure>
+                                <img class="img-fluid rounded" src="../media/felhok/nagykep/LevágásÁbra.png" alt="Kezdetleges felhő alakzat">
+                                <figcaption class="fst-italic">Kezdetleges felhő alakzat</figcaption>
+                            </figure>
+                        </div>
+                        <div class="col-sm">
+                            <figure>
+                                <img class="img-fluid rounded" src="../media/felhok/nagykep/Levágás.png" alt="In this Blender Geometry Nodes setup, the 'Group Input' node connects to the 'Realize Instances' node via the 'Geometry' output. The 'Realize Instances' node further links to the 'Mesh to Volume' node, which also connects to the 'Volume to Mesh' node through its output. The 'Mesh to Volume' node has its settings adjusted for 'Density' at 1.000, while 'Voxel Amount' stands at 32,000. The 'Bounding Box' node is positioned centrally and is linked to the 'Transform Geometry' node, which allows adjustments to its 'Translation' values in the X, Y, and Z axes, all set to 0.000. The 'Volume to Mesh' node has its 'Grid' settings highlighted, featuring a 'Threshold' of 0.100 and 'Adaptivity' adjustments, although specifics are not detailed. To the right, the 'Mesh Boolean' node is configured with 'Intersecting Edges' set to 'Difference', necessitating two meshes as inputs, labelled as 'Mesh 1' and 'Mesh 2', with options for 'Self Intersection' and 'Hole Tolerant' toggled.">
+                                <figcaption class="fst-italic">Használt <span lang="en">Node</span>-ok</figcaption>
+                            </figure>
+                            <aside>
+                                <details class="callout">
+                                    <summary>Tipp</summary>
+                                    <p>Egy kijelölt <span lang="en"><i>Node</i></span>-ot <kbd>CTRL</kbd>+<kbd>M</kbd> billentyű kombinációval 
+                                    ideiglenesen inaktívvá tehetünk és fordítva. Ezzel jobban átlátjuk, mit csinál.</p>
+                                </details>
+                            </aside>
+                        </div>
+                    </div>
+            </article>
+            <hr>
+            <article>
+                <h2>5. Lépés</h2>
+                <div class="row">
+                    <div class="col-sm">
+                        <p>Egy kis matek és az eddig tanultakat felhasználva sok életet vihetünk a felhőnkbe! 
+                        Adjunk több használható pontot az Alakzatunkhoz, majd ezeket a pontokat mozgassuk abba az irányba amerre azok néznek. 
+                        Az oldal normálját összehasonlítva egy lefelé mutató vektorral ki tudjuk zárni a felhő alján elhelyezkedő pontokat. 
+                        Most a megszokott <b>Zajt</b> kombináltam egy <span lang="en"><i>Voronoi</i></span> textúrával, így a végeredmény “gömbösebb” lesz.</p>
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/felhok/nagykep/ExtraRészletekÁbra.png" alt="Részletesebb felhő alakzat">
+                            <figcaption class="fst-italic">Részletesebb felhő alakzat</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-sm">
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/felhok/nagykep/ExtraRészletekJavított.png" alt="In this Blender Geometry Nodes setup, the 'Normal' node is connected to two nodes: first to the 'Less Than' node, which takes in a vector and outputs a boolean result, and second to a 'Multiply' node that multiplies this vector. The 'Dot Product' node, located directly above, provides its vector output to the 'Less Than' node's input along with a scalar float value of 0.300. The 'Normal' node also connects to another 'Normal' in the 'Multiply' node, which further processes the input. Below the 'Normal' node, a 'Voronoi Texture' node generates a texture based on distance and color, with its 3D output routed to the 'Multiply' node, influencing the geometry. The 'Noise Texture' node, also contributing to the overall visual result, connects via its color output, providing further detail through connected scalar and vector inputs. The 'Set Position' node uses the geometry selection from earlier nodes, with the 'Offset' set for adjustments to the mesh. The structure is meticulous, showing a hierarchical flow of how nodes interact within this setup.">
+                            <figcaption class="fst-italic">Használt <span lang="en">Node</span>-ok</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </article>
+            <hr>
+            <article>
+                <h2>6. Lépés</h2>
+                <div class="row">
+                    <div class="col-sm">
+                        <p>Nincs más hátra mint ismét <b>Köddé alakítani</b> az Alakzatunkat, opcionálisan elmenteni a számításokat 
+                        (<span lang="en"><i>Bake</i></span>  funkció, de ekkor már nem módosítható) és adni neki egy <b>Anyagot</b>.</p>
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/felhok/nagykep/KészÁbra.png" alt="Kész felhő">
+                            <figcaption class="fst-italic">Kész felhő</figcaption>
+                        </figure>
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/felhok/nagykep/Kész.png" alt="Blender Geometry Nodes setup, we use 'Mesh to Volume' node to do what it says connecting the previous mesh as input, connecting it to a 'Bake' node for optional precomputing, connecting it's output to a 'Set Material' node to givi it a nice cloudy material and finally connecting the Geometry to the 'Group Output' node.">
+                            <figcaption class="fst-italic">Befejező <span lang="en">Node</span>-ok</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-sm">
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/felhok/nagykep/Material.png" alt="A detailed Blender Material setup includes a Float Curve node connected to a Mix node. The Float Curve node has a Factor input ranging from 0.0000 to 1.0000 and outputs to the 'A' input of the Mix node, which has a Result output. The Mix node's 'B' input connects to a Multiply node that receives a Value of 5.000 and outputs to the Principled Volume node. The Noise Texture node connects to the Mix node, providing a Fac output for blending. It contains a Color input set to 3D fBM and includes several adjustable parameters, such as Scale (12.300), Detail (8), and Roughness (1.000), along with a Normalize checkbox. The Volume Info node connects to the Principled Volume node, providing Color, Density, Flame, and Temperature inputs. The Principled Volume node itself has a Color Attribute and Density output filled with settings including Anisotropy (-0.084), Absorption Color, and Emission Strength (0.000). There are additional settings for Blackbody Intensity, Blackbody Tint, and Temperature (1000 K), which contribute to the final material output.">
+                            <figcaption class="fst-italic">Az Anyaghoz használt <span lang="en">Node</span>-ok</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </article>
+            <hr>
+            
+        
+    </main>
+</div> <!-- Main --> 
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script src="../js/high-contrast.js"></script> <!-- High Contrast JS -->
+
+</body>
+</html>

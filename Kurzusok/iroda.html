@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procedurális Generálás - Benőtt Iroda</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/Kurzus/kurzcustom.css">
+    <link rel="stylesheet" href="../css/Kezdolap/high-contrast.css">
+
+</head>
+
+<body>
+    <nav>
+        <h2 class="visually-hidden">Ugrás a tartalomra</h2>
+        <a class="visually-hidden-focusable skip-link" href="#tartalom">Ugrás a tartalomra</a>
+      </nav>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ms-auto">
+              <a class="nav-link" aria-current="page" href="../index.html">Kezdőlap</a>
+              <a class="nav-link" href="./felhok.html">Felhők</a>
+              <a class="nav-link active" href="./iroda.html">Iroda</a>
+              <a class="nav-link" href="./csuszdak.html">Csúszdák</a>
+              <button id="contrast-toggle" class="btn btn-outline-dark">High Contrast</button> <!-- High Contrast Toggle Button -->
+            </div>
+          </div>
+        </div>
+      </nav>
+    <div class="container-lg rounded-3 content"> <!-- Main -->
+        <header id="tartalom">
+            <h1>Benőtt Iroda </h1>
+            <div class="row">
+                <div class="col-sm">
+                    <p>Az ehhez hasonló nagyobb projekteket úgy a
+                        legkönnyebb megoldani, ha felbontjuk kisebb
+                        megvalósítható részekre és végül ezeket a
+                        kisebb részeket össze kombináljuk.
+                        Láthatjuk majd, hogy részekre bontva sokkal
+                        egyszerűbb less az egész és előre elkészített
+                        elemeket fogunk használni, hogy ezzel is időt
+                        spóroljunk
+
+                    </p>
+                </div>
+                <div class="col-sm">
+                    <figure class="text-center">
+                        <img class="img-fluid rounded" src="../media/iroda/KészÁbra.jpg"
+                            alt="Egy benőtt iroda felhőkkel">
+                        <figcaption class="fst-italic">Mit fogunk készíteni?</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </header>
+        <hr>
+        <main>
+           
+            <article>
+                <h2>1. Lépés - Plafon</h2>
+                <div class="row">
+                    <div class="col-sm">
+                        <p>A projektnek ez a legkomplexebb eleme, úgyhogy
+                            kezdjük ezzel!
+                            Először hozzunk létre egy rácsot amire később
+                            építkezhetünk! Szeretnénk, hogy ez mindig
+                            igazodjon a méretekhez.
+                        </p>
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/iroda/Gifek/Rács.gif" alt="Adaptív rács">
+                            <figcaption class="fst-italic">Adaptív rács</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-sm">
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/iroda/AlapRács.jpg" alt="Node setup for generating a grid. Three Group Input nodes provide Size X, Size Y, and Panel Size. Size X and Panel Size go to a Multiply node, then to Grid's Size X. Size Y and Panel Size go to another Multiply node, then to Grid's Size Y. Size X goes to an Add node (adds 1), then to Grid's Vertices X. Size Y goes to another Add node (adds 1), then to Grid's Vertices Y. Grid node outputs Mesh and UV Map">
+                            <figcaption class="fst-italic">Használt <span lang="en">Node</span>-ok</figcaption>
+                        </figure>
+                        <aside>
+                            <details class="callout">
+                                <summary>Tipp: </summary>
+                                <p>Mivel mindig egész értékeket akarunk használni állítsuk a
+                                    bemenetet <span lang="en"><i>Integer</i></span>-re és a
+                                    minimumot 2-re, hogy mindig legyen
+                                    használható <b>Alakzatunk</b></p>
+                                <figure>
+                                    <img class="img-fluid rounded" src="../media/iroda/RácsTip.jpg" alt="A Group Sockets belül beállítjuk a típust Integerre a Minimum értéket pedig 2-re">
+                                    <figcaption class="fst-italic">A beállítások</figcaption>
+                                </figure>
+                            </details>
+                        </aside>
+                    </div>
+                </div>
+            </article>
+            <hr>
+            <article>
+                <h2>2. Lépés – Plafon Csövekkel</h2>
+                <div class="row">
+                    <div class="col-sm">
+                        <p> Az elkészült rácsot belevezetjük egy <span lang="en"><b>Node</b></span> <b>Csoportba</b>
+                            (<span lang="en">Node</span> kijelölése + <kbd>CTRL</kbd>+<kbd>G</kbd>)
+                            mivel több helyen is fel akarjuk használni és el
+                            szeretnénk kerülni az átláthatatlanságot.
+                        </p>
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/iroda/Gifek/RácsCsövekkel.gif"
+                                alt="Rács Csövekkel">
+                            <figcaption class="fst-italic">Rács Csövekkel</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-sm">
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/iroda/Tető.jpg" alt="Blender Geometry Nodes setup showing a node group with three main sections: Roof at the top, Pipes in the middle, and a final Join Geometry node leading to Group Output. In the Roof section, two 'Adjust to panel size' nodes take 'Size X', 'Panel Size', and 'Cord' inputs from 'Group Input' and connect to the 'Grid' node's 'Size X' and 'Size Y'. The 'Grid' node connects to a 'MoveUp' node, which connects to a 'Set Material' node labeled 'Concrete'. This outputs to 'Join Geometry'. The Pipes section has two labeled groups: Upper and Lower. In Upper, a 'Group Input' provides 'Mesh' to a 'MazeFromGrid' node, outputting 'Curves' to a 'Move Up' node and then to 'Curve to Mesh', which also takes input from a 'Curve Circle' node with Radius 0.15m. The resulting mesh goes to a 'Set Material' node labeled 'Pipe2' and into 'Join Geometry'. In Lower, another 'Group Input' passes 'Mesh' to a 'Subdivide Mesh' node, which feeds into 'MazeFromGrid'. Its curves connect to a 'Move Up' and then 'Curve to Mesh', with profile input from another 'Curve Circle' with 0.07m radius. This connects to a 'Set Material' node labeled 'Pipe1', which also feeds into 'Join Geometry'. 'Join Geometry' outputs to 'Group Output' as final geometry.">
+                            <figcaption class="fst-italic">Használt <span lang="en">Node</span>-ok</figcaption>
+                        </figure>
+                    </div>
+                </div>
+		<section>
+                <h3>Csövek</h3>
+                <div class="row">
+                    <div class="col-sm">
+                        <p>Arra, hogy a csövek labirintusszerűen hálózzák,
+                            be a plafonunkat egy külön <span lang="en"><b>Node</b></span> <b>Csoportot</b> fogunk
+                            használni.
+                            A rácsot átalakítjuk <i>Görbévé</i> amin megkereshetjük
+                            az 1. ponthoz legközelebb eső másik pontot,
+                            ez önmagában nem néz ki jól, ezért randomizáljuk
+                            az egyes utak “relatív hosszát”, ezzel minden út
+                            más és más lesz. Ezután már csak adnunk kell a
+                            <i>Görbénknek</i> egy <b>Alakot</b> és feljebb mozgatni azt.
+                            Ugyanezt megismételjük és máris létrehoztunk egy
+                            komplex rendszert
+                        </p>
+                    </div>
+                    <div class="col-sm">
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/iroda/Labirintus.jpg" alt="Blender Geometry Nodes setup for generating curves from edge paths. The 'Group Input' provides a 'Mesh' input to the 'Edge Paths to Curves' node. This node outputs 'Curves' to the 'Group Output'. The 'Shortest Edge Paths' node provides 'Next Vertex Index' to the 'Edge Paths to Curves' node. A 'Random Value' node generates a float value between 0.000 and 1.000 with Seed 39 and outputs to 'Edge Cost' on 'Shortest Edge Paths'. The 'Index' node outputs an index value to input A of an 'Equal' comparison node, where B is set to 0. The result of the 'Equal' node connects to 'Start Vertices' on 'Edge Paths to Curves'. The 'Index' node also connects to input A of the 'Equal' node.">
+                            <figcaption class="fst-italic">Labirintus <span lang="en">Node</span>-ok</figcaption>
+                        </figure>
+                    </div>
+                </div>
+		</section>
+		<section>
+                <h3>Tető:</h3>
+                <div class="row">
+                    <div class="col-sm">
+                        <p>Egy újabb rácsot hozunk létre, de most nem kell
+                            foglalkoznunk azzal, mennyi csúcspontunk van.
+                            A méreteket viszont a majd használandó panelek
+                            mméretéhez kell igazítanunk, hogy a plafonunk
+                            befedje az egész csőhálózatot. Mozgassuk a
+                            csövek fölé a tetőnket és az elkészült elemeket kombináljuk
+                        </p>
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/iroda/CsőAnyag.jpg"
+                                alt="A Blender Geometry Nodes setup displays a material node tree. The 'Texture Coordinate' node's 'Object' output is connected to the 'Vector' input of a 'Mapping' node. The 'Vector' output of the 'Mapping' node feeds into the 'Vector' input of an 'Image Texture' node named 'BoxPipe.jpg.001'. The 'Color' and 'Alpha' outputs of the 'Image Texture' node are connected to the 'Base Color' and 'Alpha' inputs, respectively, of a 'Principled BSDF' node. Finally, the 'Principled BSDF' node's 'BSDF' output connects to the 'Surface' input of the 'Material Output' node.">
+                            <figcaption class="fst-italic">A csövekhez használt Anyag</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-sm">
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/iroda/PanelMéret.jpg"
+                            alt="Blender Geometry Nodes setup with a 'Group Input' node providing two inputs: 'Cord' and 'Panel Size'. Both values are connected to a 'Multiply' math node, whose output goes to a 'Group Output'. The same two inputs are also connected to an 'Add' math node. The output of the 'Add' node is connected to the second input of the 'Multiply' node, creating a looped data flow structure.">
+                            <figcaption class="fst-italic">A mérethez használt számítások</figcaption>
+                        </figure>
+                        <aside>
+                            <details class="callout">
+                                <summary>Tipp: </summary>
+                                <p>Az <i>Anyagok</i> elkészítéséhez használjunk képeket textúraként
+                                    Vektornak pedig adjuk meg az <b>Objektum Koordinátáit</b>. <br>
+                                    A csőhöz használt <a target="_blank"
+                                        href="https://www.textures.com/download/rust-paint-0207/41063">textúra</a>.
+                                </p>
+                            </details>
+                        </aside>
+                    </div>
+                </div>
+	    </section>
+            </article>
+            <hr>
+            <article>
+                <h2>3. Lépés - Csempék</h2>
+                <div class="row">
+                    <div class="col-sm">
+                        <p>Modellezzünk pár egyszerű csempét és alkalmazzunk
+                            ezeken is kép Textúrákat. Ezeket helyezzük el egy
+                            <i>Kollekcióban</i> (Kijelölés + <kbd>CTRL</kbd>+<kbd>M</kbd>). Ez nem csak azért hasznos,
+                            hogy átláthatóbb legyen a projekt, de fel is tudjuk használni
+                            a plafonunk megvalósításában. Példányosítsuk a Kollekciónkat a
+                            Rácsunkon. Fontos, hogy a megfelelő Kollekciót válasszuk és
+                            pipáljuk is be a felkínált opciókat, a nemkívánatos viselkedés
+                            elkerülése érdekében. Bonyolultabb indexelésre
+                            nincs szükség, hisz a következő lépésben törölni fogunk párat
+                        </p>
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/iroda/CsempékÁbra.jpg" alt="A plafonunk">
+                            <figcaption class="fst-italic">A plafonunk</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-sm">
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/iroda/Csempék.jpg" alt="This Blender Geometry Nodes setup generates a tiled pattern.  A Grid is converted to points using 'Mesh to Points'. These points are then used by 'Instance on Points' to instance objects from a collection ('Roof tiles').  'Collection Info' specifies the collection and instance settings. 'Random Value' node generates a random ID for each instance, influencing the tile selection perhaps. The instances are uniformly scaled down (X:0.850, Y:0.850, Z:0.850).">
+                            <figcaption class="fst-italic">Használt <span lang="en">Node</span>-ok</figcaption>
+                        </figure>
+                        <aside>
+                            <details class="callout">
+                                <summary>Tipp: </summary>
+                                <p>Ha azt szeretnénk, hogy valamelyik csempe
+                                    gyakrabban jelenjen meg szimplán csak duplikáljuk azt.</p>
+                            </details>
+                        </aside>
+                    </div>
+                </div>
+            </article>
+            <hr>
+            <article>
+                <h2>4. Lépés - Szétválasztás</h2>
+                <div class="row">
+                    <div class="col-sm">
+                        <p>Hogy tényleg elhagyatott hatást adjunk az irodánknak
+                            véletlenszerűen válasszunk ki csempéket.
+                            Az egyik felét megtartjuk a másikat pedig
+                            majd arra használjuk, hogy a
+                            lógó kábeleket elhelyezzük a lukak helyén</p>
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/iroda/Gifek/CsempékÁbra.gif" alt="Lyukas tető">
+                            <figcaption class="fst-italic">Lyukas tető</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-sm">
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/iroda/Szétválasztás.jpg"
+                            alt="The image shows a node-based interface, likely from a 3D modeling or procedural generation software. The nodes and connections are as follows: 1. 'Separate Geometry' node with inputs: Selection, Inverted, Geometry (connected to an external source), Selection. 2. 'Holes' output from the 'Separate Geometry' node is connected to the input of another node labeled 'Holes'. 3. The 'Holes' node has inputs: Value (set to Boolean), Probability, Seed. 4. The output of the 'Holes' node is connected to another external source labeled 'Tiles'. 5. There is also a 'Group Input' node with outputs: Missing tiles, Missing Seed.">
+                            <figcaption class="fst-italic">Használt <span lang="en">Node</span>-ok</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </article>
+            <hr>
+            <article>
+                <h2>5. Lépés – Lógó Kábelek</h2>
+                <div class="row">
+                    <div class="col-sm">
+                        <p>Ez a rész kissé trükkösebb. Bontsuk szét a
+                            lyukakat tartalmazó szálunkat 2 újabbra,
+                            ezúttal 50-50 arányban. Az egyik lesz a
+                            kábelek kezdő pontja a másik a végpontja.
+                            A kezdőpontokat úgy választjuk ki, hogy kis négyzeteket
+                            helyezünk el a lyukakba amiken <i>Vonalakat Példányosítunk</i>,
+                            ezek iránya nem igen számít mivel később módosítani fogjuk.
+                        </p>
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/iroda/Kábelek1Ábra.jpg"
+                                alt="A kezdeti kábelek vizualizációja">
+                            <figcaption class="fst-italic">Ha ezt a csoportot vizualizálni szeretnénk az így nézne ki. A
+                                következő lépésben megkeressük a vonalainkhoz legközelebb eső gömböt és a végpontját
+                                ráállítjuk.</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-sm">
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/iroda/Kábelek1.jpg" alt="A 'Group Input' node provides 'Cabel density' to both the 'Hanging Lines' and 'Cabel Position' branches. 'Hanging Lines' connects 'Group Input' to 'Realize Instances', which is connected to 'Distribute Points on Faces' and 'Instance on Points'. 'Instance on Points' uses a 'Curve Line' node to define the line shape. 'Cabel Position' connects 'Group Input' to 'Realize Instances', then to 'Instance on Points', using an 'Ico Sphere' node for the instances. 'Instance on Points' is further connected to 'Transform Geometry' and 'Geometry Proximity' nodes for positioning. A 'Holes In Half' section, using 'Separate Geometry' and a 'Random Value' node, is connected to both 'Hanging Lines' and 'Cabel Position', influencing the hole generation in the final geometry.">
+                            <figcaption class="fst-italic">Használt <span lang="en">Node</span>-ok</figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <p>
+                            A <a target="_blank"
+                                href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/sample/geometry_proximity.html"><span
+                                    lang="en">Geometry Proximity Node</span></a>
+                            pont ezt a pozíciót adja
+                            meg ezért nekünk már csak rá kell állítani a
+                            <i>Vonalakat</i> amihez elég a Végpontokat kijelölni.
+                            Ezután a két végponton beállítjuk az ívet, enélkül
+                            a kábeleink teljesen egyenesek lennének.
+                            A véletlenszerű eltolás variációt ad az egésznek.
+                        </p>
+                    </div>
+                    <div class="col-sm">
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/iroda/Kábelek2Javított.jpg"
+                                alt="Blender Geometry Nodes setup for creating curved lines. The setup uses several nodes connected by lines indicating data flow. 'Hanging Lines' and 'Cabel Position' nodes feed into a 'Set Position' node, which affects 'Geometry' and 'Selection'. A 'Set Spline Type' node selects 'Curve' as the spline type, influencing 'Selection'. 'Set Handle Type' is set to 'Curve'. Two 'Set Handle Positions' nodes control the curve's handle positions (left and right). A 'Random Value' node generates a random float value, influencing 'Z Offset' node. The 'Z Offset' node modifies the Z-coordinate, connecting to the 'Set Handle Positions' nodes. Finally, a 'Transform Geometry' node applies transformations (translation, rotation, and scale) to the resulting geometry. The 'Group Output' node outputs the final geometry.">
+                            <figcaption class="fst-italic">A Kábelek összekötéséhez használt <span
+                                    lang="en">Node</span>-ok</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </article>
+            <hr>
+            <article>
+                <h2>6. Lépés - Cső extrákkal</h2>
+                <div class="row">
+                    <div class="col-sm">
+                        <p>Most hogy megvagyunk a fő alakkal díszítsük ki egy kicsit.
+                            Alkatítsuk át tényleges Alakká és adjunk hozzá részleteket.
+                            Ezek csak egyszerű cilinderek amiket a Vonal irányában
+                            elforgattunk és randomizáltuk a méretüket.
+                            A <i>Z</i> irányba ezt beszoroztuk ugyanazon
+                            <span lang="en">Random Node</span>-dal, csak más <span lang="en">Seed</span>-et használtunk
+                        </p>
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/iroda/KábelekEgyütt.jpg"
+                                alt="A Geometry Nodes setup in Blender for generating cables. The node tree starts with the 'Group Input' node, which outputs a value called 'Cabel density'. This connects to the 'Cabel Curves' node, going into its 'Cabel density' input. The 'Cabel Curves' node outputs 'Geometry', which splits into two directions. One connection goes directly into the 'Input' of the 'Cabel Details' node, and from there its 'Geometry' output goes into the 'Join Geometry' node. The second connection from 'Cabel Curves' goes into the 'Geometry' input of the 'Set Material' node. Before reaching 'Set Material', this path passes through two more nodes: first, the 'Curve to Mesh' node, which takes the 'Cabel Curves' geometry as 'Curve' input and a circular shape from the 'Curve Circle' node as the 'Profile Curve'. The 'Curve Circle' node has parameters set to 32 points and a radius of 0.02 meters. The resulting mesh from 'Curve to Mesh' is passed to the 'Set Material' node. The 'Set Material' node applies a material named 'Cabels' and outputs geometry that is finally joined using the 'Join Geometry' node, which also receives input from the 'Cabel Details' node. Additional wires labeled 'Tiles' and 'Holes' connect from outside into the 'Cabel Curves' node.">
+                            <figcaption class="fst-italic">A kábelhez használt <span lang="en">Node</span>-ok együtt
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-sm">
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/iroda/KábelExtra.jpg"
+                                alt="A Blender Geometry Nodes setup for detailing cables. The node tree begins with the 'Group Input' node, which outputs the input geometry. This goes into the 'Curve to Points' node, which takes the 'Curve' as input and generates points with a count set to 10. The points then pass through the 'Align Rotation to Vector' node, which aligns the rotation based on the Z axis with a factor of 1. The output then splits into two directions. One goes into the 'Instance on Points' node, where instances are created on the generated points. The 'Pick Instance' option is used, with rotation and scale applied from the previous nodes. The other split goes into the 'Set Material' node, applying the 'CabelDetail' material to the geometry before passing it to the 'Group Output' node. Another branch comes from the 'Random Value' node, which generates a Boolean value with a probability of 0.207 and a seed of 0, connecting to the 'Random Scale' node. This node produces a random scaling factor with a minimum value of 0.4 and a maximum value of 1.2. The scaling factor then connects to the 'Multiply' node, which is combined with a vector from the 'Combine XYZ' node to control the scaling along the X, Y, and Z axes. The final output is passed to the 'Instance on Points' node, where the geometry is instanced. The 'Cylinder' node generates a cylinder mesh with a radius of 0.05 meters and a depth of 0.2 meters, which is used as the instance for the 'Instance on Points' node.">
+                            <figcaption class="fst-italic">Kábel részletekhez használt <span lang="en">Node</span>-ok
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/iroda/Gifek/KábelekÁbra.gif"
+                                alt="Kész kábelek szemléltetése">
+                            <figcaption class="fst-italic">Kész kábelek szemléltetése</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </article>
+            <hr>
+            <article>
+                <h2>7. Lépés – Plafon Befejezése</h2>
+                <p>Mostmár csak össze kell kombinálnunk azt amit eddig készítettünk.</p>
+                <div class="same-lvl">
+                    <figure class="col-sm">
+                        <img class="img-fluid rounded" src="../media/iroda/Gifek/PlafonVégeredmény.gif"
+                            alt="Kész plafon szemléltetése">
+                        <figcaption class="fst-italic">Kész plafon szemléltetése</figcaption>
+                    </figure>
+                    <figure class="col-sm">
+                        <a href="../media/iroda/KábelExtra.jpg" target="_blank">
+                            <img class="img-fluid rounded" src="../media/iroda/KábelExtra.jpg"
+                            alt="This image shows a Blender Geometry Nodes setup with various nodes connected to each other. The connections are as follows: 1. 'Cylinder' node outputs to the 'Curve to Points' node. 2. 'Random Value' node outputs to the 'Align Rotation to Vector' node. 3. 'Curve to Points' node outputs to the 'Align Rotation to Vector' and 'Instance on Points' nodes. 4. The output of the 'Align Rotation to Vector' node goes into the rotation input of the 'Instance on Points' node. 5. The output of the first group input goes into both the count input of the 'Curve To Points' and value input of 'Random Scale'. 6. The output of 'Random Scale' goes into one vector input of 'Combine XYZ'. 7. The output from 'Combine XYZ' goes into scale input in 'Instance on Points'. 8. The output from 'Instance on Points' goes into geometry in 'Set Material'. 9. 'Set Material's geometry is connected with 'Group Output'.">
+                        </a>
+                        <figcaption class="fst-italic">A használt <span lang="en">Node</span>-ok</figcaption>
+                    </figure>
+                </div>
+            </article>
+            <hr>
+            <article>
+                <h2>8. Lépés – Növényzet</h2>
+                <div class="row">
+                    <div class="col-sm">
+                        <p>Szerencsénkre nem kell lemodelleznünk magunktól a növényeket,
+                            helyette haszálhatunk egy
+                            <a target="_blank" href="https://superhivemarket.com/products/the-plant-library">Előre
+                                Elkészített Csomagot</a> ,
+                            ez persze nem kötelező. A lépések kb ugyanazok mint a
+                            plafon csempéinél. Készítsünk egy lapot, aminek adtunk egy
+                            szőnyeg és fű textúrát amik közt zaj segítségével váltunk.
+                            Ezután adjuk,
+                            hozzá a <span lang="en">Geometry Node</span> csoportunkat és <span lang="fr">voilà</span>.
+                        </p>
+                        <figure>
+                            <img class="img-fluid rounded" src="../media/iroda/Gifek/NövényzetÁbra.gif"
+                                alt="Növényzet Generálás">
+                            <figcaption class="fst-italic">Növényzet Generálás</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col-sm">
+                        <figure>
+                        <a href="../media/iroda/VirágokÉsFű.jpg" target="_blank">
+                            <img class="img-fluid rounded" src="../media/iroda/VirágokÉsFű.jpg" alt="The image shows a node-based interface, likely from a 3D modeling or procedural generation software. The nodes and connections are as follows: 1. 'Randomize' node connected to 'Barbarian Instance', 'Combine XYZ', and 'Barbarian Scale'. 2. 'To Flower Distribution' and 'To Grass Distribution' nodes connected to 'Random'. 3. 'Grass Distribution' node with inputs: Instances (1000), Position (Random Seed), Rotation (Random Seed), Scale (Random Seed). 4. 'Grass Input' node connected to 'Flower Density' and 'Flower Seed'. 5. 'Flower Distribution' node with inputs: Instances (1000), Position (Random Seed), Rotation (Random Seed), Scale (Random Seed). 6. 'Grass Vegetation' and 'Flower Vegetation' nodes connected to 'Crystal' and 'UV Set 1 Geometry'. 7. 'UV Set 1 Geometry' node connected to 'Join Geometry'. 8. 'Join Geometry' node connected to 'Viewport'. 9. 'Viewport' node connected to 'Business' and 'Surface'. 10. 'Surface' node connected to 'Ground'.">
+                        </a>
+                            <figcaption class="fst-italic">Használt <span lang="en">Node</span>-ok</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+
+            </article>
+            <article>
+                <h2>9. Lépés – Befejezés</h2>
+                <p>Az elkészült részeket felhasználva modellezzünk egy
+                    iroda helységet majd azt népesítsük be az Ingyenes
+                    Erőforrások részben említett tárgyakkal, hogy egyedibbé és
+                    szürreálisabbá tegyük az irodánkat elhelyeztünk pár ingyenes
+                    <a href="https://jangafx.com/software/embergen/download/free-vdb-animations" target="_blank"
+                        rel="noopener noreferrer">felhő modellt</a>
+                </p>
+                <div class="d-flex justify-content-center">
+                    <figure>
+                        <img class="img-fluid rounded"
+                            src="https://i.pinimg.com/736x/15/da/2c/15da2c3d1c927fa54e712c8c2b6f5d4b.jpg"
+                            alt="Benőtt iroda felhőkkel">
+                        <figcaption class="fst-italic">Elkészült munka</figcaption>
+                    </figure>
+                </div>
+            </article>
+
+        </main>
+    </div> <!-- Main -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+    <script src="../js/high-contrast.js"></script> <!-- High Contrast JS -->
+
+</body>
+
+</html>
